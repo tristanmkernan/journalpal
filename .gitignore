@@ -169,6 +169,9 @@ cython_debug/
 # Django static files
 staticfiles/
 
+# Configs
+.pdbrc
+
 # Emacs
 .dir-locals.el
 

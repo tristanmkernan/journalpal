@@ -236,3 +236,8 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "UTC"
 
 SITE_URL = "https://journalpal.tmk.name"
+
+# AI
+
+OPENAI_API_KEY = config("OPENAI_API_KEY")
+OPENAI_MODEL = config("OPENAI_MODEL")

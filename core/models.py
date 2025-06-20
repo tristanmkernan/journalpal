@@ -3,6 +3,8 @@ from uuid import uuid4
 from django.contrib.auth import get_user_model
 from django.db import models
 
+from .enums import Sentiment
+
 User = get_user_model()
 
 
@@ -19,6 +21,13 @@ class JournalEntry(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
     raw_text = models.TextField()
+
+    summary = models.TextField()
+    sentiment = models.CharField(
+        max_length=32,
+        choices=Sentiment.choices(),
+        default=Sentiment.NEUTRAL,
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

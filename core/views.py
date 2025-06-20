@@ -8,6 +8,7 @@ from django.views.generic import (
 
 from .forms import JournalEntryForm
 from .models import JournalEntry
+from .services import enrich_journal_entry
 
 
 class IndexView(TemplateView):
@@ -35,4 +36,11 @@ class JournalEntryCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
-        return super().form_valid(form)
+
+        response = super().form_valid(form)
+
+        created_entry = self.object
+
+        enrich_journal_entry(created_entry)
+
+        return response
