@@ -1,12 +1,16 @@
-from operator import attrgetter
-from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
-    CreateView,
-    DeleteView,
-    DetailView,
+    ListView,
     TemplateView,
 )
 
 
 class IndexView(TemplateView):
     template_name = "core/index.html"
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "core/dashboard.html"
+
+    def get_queryset(self):
+        pass

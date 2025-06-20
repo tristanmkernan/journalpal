@@ -141,14 +141,21 @@ AUTHENTICATION_BACKENDS = [
 # AllAuth
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+ACCOUNT_SIGNUP_FIELDS = [
+    "first_name*",
+    "last_name*",
+    "email*",
+    "password1*",
+    "password2*",
+]
+
+ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_CHANGE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
-LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_REDIRECT_URL = "core:dashboard"
 
 ACCOUNT_FORMS = {
     "login": "authy.forms.LoginForm",
