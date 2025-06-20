@@ -1,0 +1,33 @@
+{% extends "core/skeleton.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Index{% endblock %}
+{% block body %}
+
+  <main>
+    <div class="container d-flex flex-column gap-5 px-4 py-5">
+      <div class="row">
+        <div class="text-center">
+          <h1 class="display-5 fw-bold">
+            Your Personal Journal, Powered by AI
+          </h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">
+              Turn your daily thoughts into meaningful insights. JournalPal helps you capture your experiences naturally, then automatically extracts mood patterns, key themes, and summaries so you can understand yourself better over time.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 mx-auto d-flex">
+          <a class="btn btn-lg btn-primary mx-auto" href="#">
+            Start Your Journal Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
